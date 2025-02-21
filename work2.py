@@ -5,15 +5,14 @@ class BankAccount:
     account_current = 1000000000
 
     """функції рахунку клієнта"""
-    def __init__(self, owner_name, balance):
-        self.__account_number = self.generate_account_number()
+    def __init__(self, account_number, owner_name, balance):
+        self.__account_number = account_number
         self.__owner_name = owner_name
         self.set_balance(balance)
 
-    def generate_account_number(self):
+    def generate_account_number():
         """Статичний метод для генерування унікального номера рахунку"""
-        BankAccount.account_current += 1
-        return f"UA {BankAccount.account_current} "
+        return str(random.randint(1000000000, 9999999999))
 
 
     def get_account_info(self):
@@ -67,8 +66,14 @@ class BankAccount:
 # print(f"Balance {account.get_balance()} ")
 # print(account.get_account_info())
 
-account1 = BankAccount("Всеволод", 1000)
+account1 = BankAccount(BankAccount.generate_account_number(), "Всеволод", 1000)
 print(account1.get_account_info())  # Виведе унікальний номер рахунку
+getbalance = account1.get_balance()
+print(getbalance)
 
-account2 = BankAccount("Ірина", 500)
+
+account2 = BankAccount(BankAccount.generate_account_number(), "Ірина", 500)
 print(account2.get_account_info())  # Виведе новий унікальний номер рахунку
+getbalance = account2.get_balance()
+print(getbalance)
+
