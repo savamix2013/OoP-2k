@@ -60,7 +60,7 @@ class Reader:
             self.rented_books.remove(book)
 
     
-# --- Тестуємо ---
+
 author1 = Author("Іван Франко", 1856)
 author2 = Author("Леся Українка", 1871)
 author3 = Author("Тарас Шевченко", 1814)
